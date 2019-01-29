@@ -20,7 +20,10 @@ public class PaymentPage extends BasePage {
         String totalPrice  =navegador.findElement(By.id("total_price")).getText().substring(1);
         Float totalPriceF = Float.parseFloat(totalPrice);
 
-        Float totalCompraF = totalProdutoF + totalShippingF;
+        String totalTax  =navegador.findElement(By.id("total_tax")).getText().substring(1);
+        Float totalTaxF = Float.parseFloat(totalTax);
+
+        Float totalCompraF = totalProdutoF + totalShippingF + totalTaxF;
         Assert.assertEquals(totalCompraF,totalPriceF);
 
         navegador.findElement(By.xpath("//*[@id=\"HOOK_PAYMENT\"]/div[1]/div/p/a")).click();

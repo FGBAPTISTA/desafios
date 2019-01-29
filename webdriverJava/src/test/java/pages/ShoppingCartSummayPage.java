@@ -10,7 +10,7 @@ public class ShoppingCartSummayPage extends BasePage {
     }
 
     public AddressesPage clicarProceedToCheckoutAddress () {
-        String descricaoCarrinho = navegador.findElement(By.xpath("//*[@id=\"product_1_1_0_110115\"]/td[2]/p/a")).getText();
+        String descricaoCarrinho = navegador.findElement(By.xpath("//*[@id=\"product_1_1_0_135380\"]/td[2]/p/a")).getText();
         Assert.assertEquals("Faded Short Sleeve T-shirts", descricaoCarrinho);
 
         navegador.findElement(By.linkText("Proceed to checkout")).click();

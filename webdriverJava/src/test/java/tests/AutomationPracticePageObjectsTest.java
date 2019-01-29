@@ -18,8 +18,8 @@ public class AutomationPracticePageObjectsTest {
     @Test
     public void testAutomationPrice () {
         new LoginAutomationPraticePage(navegador).clicarSignIn()
-                .digitarEmailAddress("fabio.bapt@outlook.com")
-                .digitarPassword("fscb2008")
+                .digitarEmailAddress("fabiob@dbserver.com.br")
+                .digitarPassword("teste123")
                 .clicarSignIn()
                 .clicarHome()
                 .clicarProduct()

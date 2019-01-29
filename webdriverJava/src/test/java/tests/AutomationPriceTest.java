@@ -30,10 +30,10 @@ public class AutomationPriceTest {
 
         // Already Registered
         // No campo de id "email"  informar "fabio.bapt@outlook.com"
-        navegador.findElement(By.id("email")).sendKeys("fabio.bapt@outlook.com");
+        navegador.findElement(By.id("email")).sendKeys("fabiob@dbserver.com.br");
 
         // No campo de id "passwd"  informar "fscb2008"
-        navegador.findElement(By.id("passwd")).sendKeys("fscb2008");
+        navegador.findElement(By.id("passwd")).sendKeys("teste123");
 
         // Clicar no campo de id "SubmitLogin"
         navegador.findElement(By.id("SubmitLogin")).click();
@@ -52,8 +52,8 @@ public class AutomationPriceTest {
         // Clicar no link Proceed to checkout
         navegador.findElement(By.linkText("Proceed to checkout")).click();
 
-        // Guardar descrição do Produto 01 no carrinho atraves do seu xpath //*[@id="product_1_1_0_110115"]/td[2]/p/a
-        String descricaoCarrinho = navegador.findElement(By.xpath("//*[@id=\"product_1_1_0_110115\"]/td[2]/p/a")).getText();
+        // Recupera descrição do Produto 01 no carrinho atraves do seu xpath //*[@id="product_1_1_0_135380"]/td[2]/p/a
+        String descricaoCarrinho = navegador.findElement(By.xpath("//*[@id=\"product_1_1_0_135380\"]/td[2]/p/a")).getText();
         System.out.println("Descricao Item carrinho: "  + descricaoCarrinho);
 
         // Validar se o produto do carrinho tem a mesma descrição do produto selecionado
@@ -94,13 +94,18 @@ public class AutomationPriceTest {
         String totalPrice  =navegador.findElement(By.id("total_price")).getText().substring(1);
         Float totalPriceF = Float.parseFloat(totalPrice);
 
+        // Recuperar tax no campo id //*[@id="total_tax"]
+        String totalTax  =navegador.findElement(By.id("total_tax")).getText().substring(1);
+        Float totalTaxF = Float.parseFloat(totalTax);
+
+
         // Somatorio Total Products + Total Shipping
-        Float totalCompraF = totalProdutoF + totalShippingF;
+        Float totalCompraF = totalProdutoF + totalShippingF + totalTaxF;
 
         System.out.println("Total Products: "  + totalProdutoF);
         System.out.println("Total Shipping: "  + totalShippingF);
+        System.out.println("Total Tax: "  + totalTaxF);
         System.out.println("Somatório Total Products e Total Shipping: "  + totalCompraF);
-       // System.out.println("Total da Compra: "  +  totalPriceF);
 
         // Validar se Total Products +  Total Shipping bate com Total
         Assert.assertEquals(totalCompraF,totalPriceF);
