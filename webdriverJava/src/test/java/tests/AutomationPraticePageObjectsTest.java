@@ -4,10 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pages.LoginAutomationPraticePage;
+import pages.CreateAccountPage;
+import pages.HomePage;
 import suporte.Web;
 
-public class AutomationPracticePageObjectsTest {
+public class AutomationPraticePageObjectsTest {
     private WebDriver navegador;
 
     @Before
@@ -17,25 +18,20 @@ public class AutomationPracticePageObjectsTest {
 
     @Test
     public void testAutomationPrice () {
-        new LoginAutomationPraticePage(navegador).clicarSignIn()
-                .digitarEmailAddress("fabiob@dbserver.com.br")
-                .digitarPassword("teste123")
-                .clicarSignIn()
-                .clicarHome()
-                .clicarProduct()
+        new HomePage(navegador).clicarProduct()
                 .clicarAddToCart()
                 .clicarProceedToCheckout()
                 .clicarProceedToCheckoutAddress()
+                .clicarBotaoHome()
                 .clicarProceedToChekoutShipping()
                 .clicarTermsOfService()
                 .clicarPayment()
                 .clicarIConfirmMyOrder();
-
     }
 
     @After
     public void tearDown() {
-    //    navegador.quit();
+        //    navegador.quit();
     }
 
 }

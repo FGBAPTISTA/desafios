@@ -23,15 +23,4 @@ public class LoginFormAutomationPraticePage extends BasePage{
         navegador.findElement(By.id("SubmitLogin")).click();
         return new MyAccountPage (navegador);
     }
-
-    public LoginFormAutomationPraticePage digitarEmailAddressCreateAnAccount (String login) {
-        navegador.findElement(By.id("email_create")).sendKeys(login);
-        return this;
-    }
-
-    public MyAddressPage clicarCreateAnAccount () {
-        navegador.findElement(By.xpath("//*[@id=\"SubmitCreate\"]/span")).click();
-        return new MyAddressPage (navegador);
-    }
-
 }
